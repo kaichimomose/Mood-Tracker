@@ -15,6 +15,8 @@
 		BF1FB5BB1F7C9E03001B9421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1FB5B91F7C9E03001B9421 /* Main.storyboard */; };
 		BF1FB5BE1F7C9FFA001B9421 /* ListMoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FB5BD1F7C9FFA001B9421 /* ListMoodTableViewController.swift */; };
 		BF1FB5C01F7CA078001B9421 /* ListMoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FB5BF1F7CA078001B9421 /* ListMoodTableViewCell.swift */; };
+		BF1FB5C31F7D6EDC001B9421 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FB5C21F7D6EDC001B9421 /* List.swift */; };
+		BF1FB5C61F7D7C05001B9421 /* Date+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FB5C51F7D7C05001B9421 /* Date+convertToString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		BF1FB5BA1F7C9E03001B9421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF1FB5BD1F7C9FFA001B9421 /* ListMoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListMoodTableViewController.swift; path = "Mood Tracker/Controllers/ListMoodTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		BF1FB5BF1F7CA078001B9421 /* ListMoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoodTableViewCell.swift; sourceTree = "<group>"; };
+		BF1FB5C21F7D6EDC001B9421 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		BF1FB5C51F7D7C05001B9421 /* Date+convertToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+convertToString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 				BF1FB5A81F7C5D45001B9421 /* Mood_Tracker.xcdatamodeld */,
 				BF1FB5BC1F7C9E0B001B9421 /* Storyboards */,
 				BF1FB5C11F7CA436001B9421 /* Views */,
+				BF1FB5C41F7D6EED001B9421 /* Models */,
+				BF1FB5C71F7D7C52001B9421 /* Extensions */,
 			);
 			path = "Mood Tracker";
 			sourceTree = "<group>";
@@ -97,6 +103,24 @@
 			);
 			name = Views;
 			path = Viewa;
+			sourceTree = "<group>";
+		};
+		BF1FB5C41F7D6EED001B9421 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BF1FB5C21F7D6EDC001B9421 /* List.swift */,
+			);
+			name = Models;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
+		BF1FB5C71F7D7C52001B9421 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BF1FB5C51F7D7C05001B9421 /* Date+convertToString.swift */,
+			);
+			name = Extensions;
+			path = "New Group2";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,10 +196,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1FB5AA1F7C5D45001B9421 /* Mood_Tracker.xcdatamodeld in Sources */,
+				BF1FB5C61F7D7C05001B9421 /* Date+convertToString.swift in Sources */,
 				BF1FB5B71F7C6765001B9421 /* DisplayViewController.swift in Sources */,
 				BF1FB5BE1F7C9FFA001B9421 /* ListMoodTableViewController.swift in Sources */,
 				BF1FB5C01F7CA078001B9421 /* ListMoodTableViewCell.swift in Sources */,
 				BF1FB5A21F7C5D45001B9421 /* AppDelegate.swift in Sources */,
+				BF1FB5C31F7D6EDC001B9421 /* List.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

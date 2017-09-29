@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List Mood Table View Controller-->
+        <!--Mood Tracker-->
         <scene sceneID="rkQ-RV-lfD">
             <objects>
                 <viewController id="Bg0-1Y-mAK" customClass="ListMoodTableViewController" customModule="Mood_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,11 +24,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-1"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listMoodTableViewCell" id="gNm-UZ-ecT" customClass="ListMoodTableViewCell" customModule="Mood_Tracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listMoodTableViewCell" rowHeight="58" id="gNm-UZ-ecT" customClass="ListMoodTableViewCell" customModule="Mood_Tracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gNm-UZ-ecT" id="7Nm-tP-nni">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend's Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgu-Hv-ccu">
@@ -38,13 +38,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ax-PF-PeL">
-                                                    <rect key="frame" x="8" y="25" width="179.5" height="18"/>
+                                                    <rect key="frame" x="8" y="39.5" width="179.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqd-4V-atc">
-                                                    <rect key="frame" x="304" y="7" width="63" height="30"/>
+                                                    <rect key="frame" x="304" y="14" width="63" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="NOq-1y-7rY"/>
                                                     </constraints>
@@ -70,6 +70,7 @@
                                             <outlet property="moodLabel" destination="yqd-4V-atc" id="2c2-dn-j0m"/>
                                             <outlet property="moodModificationTimeLabel" destination="2ax-PF-PeL" id="LcH-nh-rej"/>
                                             <outlet property="nameLabel" destination="Lgu-Hv-ccu" id="1BV-gI-mTx"/>
+                                            <segue destination="njm-dK-YFy" kind="show" identifier="displayMood" id="P77-BG-a0B"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -87,11 +88,112 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HKm-Id-y0B"/>
                     </view>
-                    <navigationItem key="navigationItem" id="If8-Cu-BCA"/>
+                    <navigationItem key="navigationItem" title="Mood Tracker" id="If8-Cu-BCA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Qob-5x-VIb">
+                            <connections>
+                                <segue destination="njm-dK-YFy" kind="show" identifier="addMood" id="fbz-xq-avg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="oOE-0o-Ncm" id="deg-RV-bhV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mzI-Jp-ms9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="876" y="70.614692653673174"/>
+        </scene>
+        <!--Mood-->
+        <scene sceneID="ffS-dc-M8q">
+            <objects>
+                <viewController id="njm-dK-YFy" customClass="DisplayViewController" customModule="Mood_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mwS-9q-zbd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cWz-I5-8qD">
+                                <rect key="frame" x="20" y="124" width="335" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Bnq-nY-JMc">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend's Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeD-Bm-MvA">
+                                                <rect key="frame" x="0.0" y="0.0" width="137" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LjG-Zw-KM2">
+                                                <rect key="frame" x="157" y="0.0" width="178" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="select friend's mood below (good (😁), medium(😑), bad(😡))" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEb-Jc-gsg">
+                                        <rect key="frame" x="0.0" y="45" width="335" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="H6U-US-Ros">
+                                        <rect key="frame" x="0.0" y="72" width="335" height="28"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend's Mood:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qt-vB-5ZQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="136" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4lg-K6-0bE">
+                                                <rect key="frame" x="156" y="0.0" width="179" height="29"/>
+                                                <segments>
+                                                    <segment title="😁"/>
+                                                    <segment title="😑"/>
+                                                    <segment title="😡"/>
+                                                </segments>
+                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Bnq-nY-JMc" firstAttribute="width" secondItem="cWz-I5-8qD" secondAttribute="width" id="DLr-Le-Y4a"/>
+                                    <constraint firstItem="jEb-Jc-gsg" firstAttribute="width" secondItem="Bnq-nY-JMc" secondAttribute="width" id="fZn-pG-4Ft"/>
+                                    <constraint firstItem="H6U-US-Ros" firstAttribute="width" secondItem="jEb-Jc-gsg" secondAttribute="width" id="h5H-eA-vet"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EKz-1b-oug" firstAttribute="trailing" secondItem="cWz-I5-8qD" secondAttribute="trailing" constant="20" id="BfM-75-ZZH"/>
+                            <constraint firstItem="cWz-I5-8qD" firstAttribute="top" secondItem="EKz-1b-oug" secondAttribute="top" constant="60" id="JVd-vE-jXV"/>
+                            <constraint firstItem="cWz-I5-8qD" firstAttribute="leading" secondItem="EKz-1b-oug" secondAttribute="leading" constant="20" id="tIY-Jt-NgL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EKz-1b-oug"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mood" id="Aq9-0a-b5c">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cWC-7E-GRA">
+                            <connections>
+                                <segue destination="tLM-Wc-tZn" kind="unwind" identifier="cancel" unwindAction="unwindToListMoodViewController:" id="KUU-4p-7oM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ztA-h3-N4V">
+                            <connections>
+                                <segue destination="tLM-Wc-tZn" kind="unwind" identifier="save" unwindAction="unwindToListMoodViewController:" id="AB7-gC-dcS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="moodSegue" destination="4lg-K6-0bE" id="2RK-OU-y9q"/>
+                        <outlet property="nameTextField" destination="LjG-Zw-KM2" id="zml-Bp-EVi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cXS-tX-cbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="tLM-Wc-tZn" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1697" y="71"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pqb-pV-d6L">
@@ -112,4 +214,7 @@
             <point key="canvasLocation" x="65" y="71"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="P77-BG-a0B"/>
+    </inferredMetricsTieBreakers>
 </document>
